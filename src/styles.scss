@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.pagination-container-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    .page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3px 10px;
+      background-color: #000;
+      color: #fff;
+      margin-left: 8px;
+      border-radius: 6px;
+      font-family: Tahoma, sans-serif;
+      font-size: 20px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      &:hover {
+        background-color: #fff;
+        border: 1px solid black;
+        color: #000;
+      }
+      &._active {
+        background-color: #fff;
+        border: 1px solid black;
+        color: #000;
+      }
+    }
+  }
+}

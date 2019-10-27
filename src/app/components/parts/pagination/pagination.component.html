@@ -1,0 +1,24 @@
+<div class="pagination-container-wrap">
+  <div class="pagination-container">
+    <div class="page"
+         *ngIf="currentPage !== 1 && shownPages[0] !== 1"
+         (click)="changePage(1)">First</div>
+
+    <div class="page"
+         *ngIf="isPrevExist"
+         (click)="changePage(currentPage - 1)">Prev</div>
+
+    <div class="page"
+         *ngFor="let page of shownPages"
+         [ngClass]="{_active: currentPage === page}"
+         (click)="changePage(page)">{{page}}</div>
+
+    <div class="page"
+         *ngIf="isNextExist"
+         (click)="changePage(currentPage + 1)">Next</div>
+
+    <div class="page"
+         *ngIf="shownPages[shownPages.length - 1] !== numberOfPages"
+         (click)="changePage(numberOfPages)">Last</div>
+  </div>
+</div>

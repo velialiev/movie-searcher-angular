@@ -136,5 +136,10 @@
       }
     }
   },
-  "defaultProject": "ng-movie"
+  "defaultProject": "ng-movie",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

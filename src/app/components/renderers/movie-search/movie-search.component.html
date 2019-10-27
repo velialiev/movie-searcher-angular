@@ -1,0 +1,26 @@
+<div class="search">
+  <input #movieSearchField (input)="getMovies(movieSearchField.value, 1)" type="search" placeholder="Type Movie Name" class="search-input">
+</div>
+<div *ngIf="loading">
+  Loading...
+</div>
+<div *ngIf="!loading">
+  <ul class="movie-list">
+    <li class="movie" *ngFor="let movie of movies">
+      <figure>
+        <figcaption><h3>{{movie.title}}</h3></figcaption>
+        <img [src]="movie.poster_path ? apiService.imgUrl + movie.poster_path : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'"
+             alt=""/>
+      </figure>
+      <div class="overview">
+        <h3>Overview</h3>
+        <p>{{movie.overview}}</p>
+      </div>
+    </li>
+  </ul>
+
+  <app-pagination *ngIf="movies && numberOfPages > 1" [currentPage]="currentPage"
+                  [numberOfPages]="numberOfPages"
+                  (changePageEmitter)="getMovies(movieSearchField.value, $event)">
+  </app-pagination>
+</div>
